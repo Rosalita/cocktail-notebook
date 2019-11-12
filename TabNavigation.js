@@ -2,13 +2,13 @@ import { createAppContainer } from "react-navigation";
 import { createBottomTabNavigator } from "react-navigation-tabs";
 
 import searchScreen from "./components/searchScreen";
-import notesScreen from "./components/notesScreen";
+import barScreen from "./components/barScreen";
 import randomScreen from "./components/randomScreen";
 
 const TabNavigator = createBottomTabNavigator(
   {
     Search: searchScreen,
-    Notes: notesScreen,
+    Bar: barScreen,
     Random: randomScreen
   },
   {
