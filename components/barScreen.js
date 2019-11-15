@@ -20,10 +20,6 @@ class BarScreen extends React.Component {
     super(props);
   }
 
-  test = () => {
-    console.log(Object.keys(this.props.drinks));
-  };
-
   getDrinkNames = () => {
     return Object.keys(this.props.drinks);
   };
@@ -31,12 +27,10 @@ class BarScreen extends React.Component {
   render() {
     return (
       <View style={styles.screen}>
-        <Text>Bar Screen</Text>
-        <Button title="test" onPress={this.test} />
+        <Text>My Bar</Text>
         <FlatList
           style={styles.list}
           data={this.getDrinkNames()}
-          extraData={this.props.drinks}
           renderItem={({ item, index }) => (
             <View>
               <Text>
