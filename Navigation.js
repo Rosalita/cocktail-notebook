@@ -10,13 +10,8 @@ import randomScreen from "./components/randomScreen";
 
 const BarStackNavigator = createStackNavigator(
   {
-    barList: {
-      screen: barListScreen,
-      navigationOptions: () => ({
-        tabBarLabel: "My Bar"
-      })
-    },
-    barDetails: { screen: barDetailScreen }
+    barList: barListScreen,
+    barDetails: barDetailScreen
   },
   {
     headerMode: "none"

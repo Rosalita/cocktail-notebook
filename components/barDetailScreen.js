@@ -1,10 +1,5 @@
 import React from "react";
-import {
-  Text,
-  View,
-  StyleSheet
-} from "react-native";
-import Ionicons from "react-native-vector-icons/Ionicons";
+import { Text, View, StyleSheet } from "react-native";
 import { connect } from "react-redux";
 import Constants from "expo-constants";
 
@@ -13,12 +8,9 @@ const mapStateToProps = state => {
 };
 
 class BarDetailScreen extends React.Component {
-  static navigationOptions = {
-    tabBarLabel: "My Bar",
-    tabBarIcon: ({ tintColour }) => (
-      <Ionicons name={"md-beer"} size={25} color={tintColour} />
-    )
-  };
+  componentDidMount() {
+    console.log(this.props.navigation.state.params.id);
+  }
 
   constructor(props) {
     super(props);
@@ -27,7 +19,7 @@ class BarDetailScreen extends React.Component {
   render() {
     return (
       <View style={styles.screen}>
-        <Text>Bar Detail Screen</Text>
+        <Text>{this.props.navigation.state.params.id}</Text>
       </View>
     );
   }

@@ -15,13 +15,6 @@ const mapStateToProps = state => {
 };
 
 class BarScreen extends React.Component {
-  static navigationOptions = {
-    tabBarLabel: "My Bar",
-    tabBarIcon: ({ tintColour }) => (
-      <Ionicons name={"md-beer"} size={25} color={tintColour} />
-    )
-  };
-
   constructor(props) {
     super(props);
   }
@@ -33,7 +26,7 @@ class BarScreen extends React.Component {
   handleSelect = item => {
     console.log("selected");
     console.log(item);
-    this.props.navigation.navigate("barDetails");
+    return this.props.navigation.navigate("barDetails", { id: item });
   };
 
   render() {
