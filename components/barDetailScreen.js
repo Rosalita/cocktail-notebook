@@ -1,5 +1,9 @@
 import React from "react";
-import { Button, FlatList, Text, View, StyleSheet } from "react-native";
+import {
+  Text,
+  View,
+  StyleSheet
+} from "react-native";
 import Ionicons from "react-native-vector-icons/Ionicons";
 import { connect } from "react-redux";
 import Constants from "expo-constants";
@@ -8,7 +12,7 @@ const mapStateToProps = state => {
   return { drinks: state.drinks };
 };
 
-class BarScreen extends React.Component {
+class BarDetailScreen extends React.Component {
   static navigationOptions = {
     tabBarLabel: "My Bar",
     tabBarIcon: ({ tintColour }) => (
@@ -20,26 +24,10 @@ class BarScreen extends React.Component {
     super(props);
   }
 
-  getDrinkNames = () => {
-    return Object.keys(this.props.drinks);
-  };
-
   render() {
     return (
       <View style={styles.screen}>
-        <Text>My Bar</Text>
-        <FlatList
-          style={styles.list}
-          data={this.getDrinkNames()}
-          renderItem={({ item, index }) => (
-            <View>
-              <Text>
-                {index + 1}: {item}
-              </Text>
-            </View>
-          )}
-          keyExtractor={(item, index) => `${item}-${index}`}
-        />
+        <Text>Bar Detail Screen</Text>
       </View>
     );
   }
@@ -55,7 +43,20 @@ const styles = StyleSheet.create({
   },
   list: {
     marginTop: 10
+  },
+  barItem: {
+    height: 30,
+    width: "100%",
+    flexDirection: "row",
+    marginTop: 10
+  },
+  barSelect: {
+    height: 30,
+    width: "100%",
+    backgroundColor: "#DDDDDD",
+    justifyContent: "center",
+    alignItems: "center"
   }
 });
 
-export default connect(mapStateToProps)(BarScreen);
+export default connect(mapStateToProps)(BarDetailScreen);
