@@ -20,7 +20,8 @@ describe("reducers transform state correctly", () => {
   it("can SAVE_DRINK when the state contains no drinks", () => {
     const prevState = {};
     const action = saveDrink({
-      "Arizona Antifreeze": {
+     
+        name:  "Arizona Antifreeze",
         glass: "Shot glass",
         image:
           "https://www.thecocktaildb.com/images/media/drink/dbtylp1493067262.jpg",
@@ -30,12 +31,13 @@ describe("reducers transform state correctly", () => {
           Vodka: "1/3 oz "
         },
         instructions: "Pour all ingredients into shot glass and slam !!!!"
-      }
+      
     });
 
     const expectedState = {
       drinks: {
         "Arizona Antifreeze": {
+          name: "Arizona Antifreeze",
           glass: "Shot glass",
           image:
             "https://www.thecocktaildb.com/images/media/drink/dbtylp1493067262.jpg",
@@ -56,6 +58,7 @@ describe("reducers transform state correctly", () => {
     const prevState = {
       drinks: {
         "Arizona Antifreeze": {
+          name: "Arizona Antifreeze",
           glass: "Shot glass",
           image:
             "https://www.thecocktaildb.com/images/media/drink/dbtylp1493067262.jpg",
@@ -70,7 +73,7 @@ describe("reducers transform state correctly", () => {
     };
 
     const action = saveDrink({
-      "Tequila Fizz": {
+        name: "Tequila Fizz",
         glass: "Collins glass",
         image:
           "https://www.thecocktaildb.com/images/media/drink/2bcase1504889637.jpg",
@@ -83,12 +86,12 @@ describe("reducers transform state correctly", () => {
         },
         instructions:
           "Shake all ingredients (except ginger ale) with ice and strain into a collins glass over ice cubes. Fill with ginger ale, stir, and serve."
-      }
     });
 
     const expectedState = {
       drinks: {
         "Arizona Antifreeze": {
+          name: "Arizona Antifreeze",
           glass: "Shot glass",
           image:
             "https://www.thecocktaildb.com/images/media/drink/dbtylp1493067262.jpg",
@@ -100,6 +103,7 @@ describe("reducers transform state correctly", () => {
           instructions: "Pour all ingredients into shot glass and slam !!!!"
         },
         "Tequila Fizz": {
+          name: "Tequila Fizz",
           glass: "Collins glass",
           image:
             "https://www.thecocktaildb.com/images/media/drink/2bcase1504889637.jpg",

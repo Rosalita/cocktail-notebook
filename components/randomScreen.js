@@ -36,20 +36,17 @@ class RandomScreen extends React.Component {
   handleRandomDrink = async () => {
     const drink = await getRandomDrink();
     console.log(drink);
-    const key = Object.keys(drink)[0];
     this.setState({
       randomDrink: drink,
-      name: key,
-      glass: drink[key]["glass"],
-      image: drink[key]["image"],
-      ingredients: drink[key]["ingredients"],
-      instructions: drink[key]["instructions"]
+      name: drink.name,
+      glass: drink.glass,
+      image: drink.image,
+      ingredients: drink.ingredients,
+      instructions: drink.instructions
     });
   };
 
   handleSave = () => {
-    console.log("saving")
-    console.log(this.state.randomDrink)
     this.props.saveDrink(this.state.randomDrink);
   };
 

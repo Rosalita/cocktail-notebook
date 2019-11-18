@@ -2,18 +2,13 @@ import React from "react";
 import { Text, View, StyleSheet } from "react-native";
 import { connect } from "react-redux";
 import Constants from "expo-constants";
+import Drink from "./drink";
 
 const mapStateToProps = state => {
   return { drinks: state.drinks };
 };
 
 class BarDetailScreen extends React.Component {
-  componentDidMount() {
-    console.log(this.props.navigation.state.params.id);
-    console.log("***")
-    console.log(this.props.drinks)
-
-  }
 
   constructor(props) {
     super(props);
@@ -22,7 +17,13 @@ class BarDetailScreen extends React.Component {
   render() {
     return (
       <View style={styles.screen}>
-        <Text>{this.props.navigation.state.params.id}</Text>
+        <Drink
+            name={this.props.drinks[this.props.navigation.state.params.id].name}
+            glass={this.props.drinks[this.props.navigation.state.params.id].glass}
+            image={this.props.drinks[this.props.navigation.state.params.id].image}
+            ingredients={this.props.drinks[this.props.navigation.state.params.id].ingredients}
+            instructions={this.props.drinks[this.props.navigation.state.params.id].instructions}
+          />
       </View>
     );
   }
@@ -33,8 +34,8 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: "#ffffff",
     alignItems: "center",
-    justifyContent: "center",
-    paddingTop: Constants.statusBarHeight
+    paddingTop: Constants.statusBarHeight,
+    width: "100%"
   },
   list: {
     marginTop: 10

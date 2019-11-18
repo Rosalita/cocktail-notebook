@@ -23,8 +23,6 @@ class BarScreen extends React.Component {
   };
 
   handleSelect = item => {
-    console.log("selected");
-    console.log(item);
     return this.props.navigation.navigate("barDetails", { id: item });
   };
 

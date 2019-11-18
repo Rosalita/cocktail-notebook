@@ -59,12 +59,11 @@ export const transformRandomDrink = rawJSON => {
   }
 
   const drink = {
-    [data["strDrink"]]: {
-      instructions: data["strInstructions"],
-      glass: data["strGlass"],
-      image: data["strDrinkThumb"],
-      ingredients: ingredients
-    }
+    name: data["strDrink"],
+    instructions: data["strInstructions"],
+    glass: data["strGlass"],
+    image: data["strDrinkThumb"],
+    ingredients: ingredients
   };
   return drink;
 };

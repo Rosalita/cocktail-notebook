@@ -68,7 +68,7 @@ describe(
       };
 
       const transformedRandomDrink = {
-        "Snakebite and Black": {
+          name: "Snakebite and Black",
           glass: "Pint glass",
           image:
             "https://www.thecocktaildb.com/images/media/drink/rssvwv1441248863.jpg",
@@ -79,7 +79,6 @@ describe(
           },
           instructions:
             "Put blackcurrant squash in first up to about 1cm in glass. Then add the larger and cider one after another."
-        }
       };
 
       const result = api.transformRandomDrink(rawRandomDrinkResponse)
