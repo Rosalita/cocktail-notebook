@@ -8,9 +8,17 @@ import {
 } from "react-native";
 import { connect } from "react-redux";
 import Constants from "expo-constants";
+import { deleteDrink } from "../redux/actions";
+
 
 const mapStateToProps = state => {
   return { drinks: state.drinks };
+};
+
+const mapDispatchToProps = dispatch => {
+  return {
+    deleteDrink: drink => dispatch(deleteDrink(drink))
+  };
 };
 
 class BarScreen extends React.Component {
@@ -29,6 +37,7 @@ class BarScreen extends React.Component {
   handleDelete = item => {
     console.log("delete")
     console.log(item)
+    this.props.deleteDrink(item)
   }
 
   render() {
@@ -47,7 +56,7 @@ class BarScreen extends React.Component {
                 <Text style={{ color: "white", fontSize: 16 }}>View</Text>
               </TouchableOpacity>
               <Text>
-                {index + 1}: {item}
+                {item}
               </Text>
               <TouchableOpacity
                 style={styles.barDelete}
@@ -86,14 +95,14 @@ const styles = StyleSheet.create({
   },
   barView: {
     height: 30,
-    width: 100,
+    width: 75,
     backgroundColor: "blue",
     justifyContent: "center",
     alignItems: "center"
   },
   barDelete: {
     height: 30,
-    width: 100,
+    width: 75,
     backgroundColor: "red",
     justifyContent: "center",
     alignItems: "center"
@@ -101,4 +110,4 @@ const styles = StyleSheet.create({
   }
 });
 
-export default connect(mapStateToProps)(BarScreen);
+export default connect(mapStateToProps, mapDispatchToProps)(BarScreen);
