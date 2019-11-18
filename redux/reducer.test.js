@@ -1,7 +1,22 @@
-import reducer from "./reducer"; // this imports everything from the API.js file
+import reducer from "./reducer";
 import { saveDrink } from "./actions";
 
 describe("reducers transform state correctly", () => {
+  it("returns the previous state if the action type is unrecognised", () => {
+    const prevState = { drinks: {} };
+
+    const action = {
+      type: "unknown",
+      payload: {foo: "bar"}
+    };
+
+    const expectedState = {
+      drinks: {}
+    };
+    const result = reducer(prevState, action);
+    expect(result).toEqual(expectedState);
+  });
+
   it("can SAVE_DRINK when the state contains no drinks", () => {
     const prevState = {};
     const action = saveDrink({
@@ -36,7 +51,7 @@ describe("reducers transform state correctly", () => {
     const result = reducer(prevState, action);
     expect(result).toEqual(expectedState);
   });
-  
+
   it("can SAVE_DRINK when the state already contains a drink", () => {
     const prevState = {
       drinks: {
