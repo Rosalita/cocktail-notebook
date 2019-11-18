@@ -10,7 +10,6 @@ import { connect } from "react-redux";
 import Constants from "expo-constants";
 import { deleteDrink } from "../redux/actions";
 
-
 const mapStateToProps = state => {
   return { drinks: state.drinks };
 };
@@ -35,15 +34,15 @@ class BarScreen extends React.Component {
   };
 
   handleDelete = item => {
-    console.log("delete")
-    console.log(item)
-    this.props.deleteDrink(item)
-  }
+    console.log("delete");
+    console.log(item);
+    this.props.deleteDrink(item);
+  };
 
   render() {
     return (
       <View style={styles.screen}>
-        <Text style={{fontSize: 24}}>My Bar</Text>
+        <Text style={{ fontSize: 24 }}>My Bar</Text>
         <FlatList
           style={styles.list}
           data={this.getDrinkNames()}
@@ -55,9 +54,7 @@ class BarScreen extends React.Component {
               >
                 <Text style={{ color: "white", fontSize: 16 }}>View</Text>
               </TouchableOpacity>
-              <Text>
-                {item}
-              </Text>
+              <Text>{item}</Text>
               <TouchableOpacity
                 style={styles.barDelete}
                 onPress={() => this.handleDelete(item)}
@@ -83,7 +80,7 @@ const styles = StyleSheet.create({
   },
   list: {
     marginTop: 10,
-    width: "100%",
+    width: "100%"
   },
   barItem: {
     height: 30,
@@ -106,7 +103,6 @@ const styles = StyleSheet.create({
     backgroundColor: "red",
     justifyContent: "center",
     alignItems: "center"
-   
   }
 });
 

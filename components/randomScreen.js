@@ -1,5 +1,5 @@
 import React from "react";
-import { Button, StyleSheet, Text, TouchableOpacity, View } from "react-native";
+import { StyleSheet, Text, TouchableOpacity, View } from "react-native";
 import { connect } from "react-redux";
 import { saveDrink } from "../redux/actions";
 import Constants from "expo-constants";
@@ -55,18 +55,22 @@ class RandomScreen extends React.Component {
       <View style={styles.screen}>
         {this.state.randomDrink && (
           <View style={styles.row}>
-             <TouchableOpacity
-                style={styles.customButton}
-                onPress={this.handleRandomDrink}
-              >
-                <Text style={{ color: "white", fontSize: 16 }}>Another Drink</Text>
-              </TouchableOpacity>
-              <TouchableOpacity
-                style={styles.customButton}
-                onPress={this.handleSave}
-              >
-                <Text style={{ color: "white", fontSize: 16 }}>Save To My Bar</Text>
-              </TouchableOpacity>
+            <TouchableOpacity
+              style={styles.customButton}
+              onPress={this.handleRandomDrink}
+            >
+              <Text style={{ color: "white", fontSize: 16 }}>
+                Another Drink
+              </Text>
+            </TouchableOpacity>
+            <TouchableOpacity
+              style={styles.customButton}
+              onPress={this.handleSave}
+            >
+              <Text style={{ color: "white", fontSize: 16 }}>
+                Save To My Bar
+              </Text>
+            </TouchableOpacity>
           </View>
         )}
 
@@ -125,7 +129,7 @@ const styles = StyleSheet.create({
     backgroundColor: "blue",
     justifyContent: "center",
     alignItems: "center"
-  },
+  }
 });
 
 export default connect(null, mapDispatchToProps)(RandomScreen);

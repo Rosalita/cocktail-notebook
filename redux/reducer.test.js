@@ -140,7 +140,7 @@ describe("reducers transform state correctly", () => {
     };
 
     const action = deleteDrink({
-      name: "Arizona Antifreeze",
+      name: "Arizona Antifreeze"
     });
 
     const expectedState = {

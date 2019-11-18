@@ -2,15 +2,15 @@ import { SAVE_DRINK, DELETE_DRINK } from "./actions";
 
 const reducer = (prevState = { drinks: {} }, action) => {
   if (action.type === SAVE_DRINK) {
-    const key = action.payload.name
-    return { drinks: {...prevState.drinks, [key]: action.payload}};
+    const key = action.payload.name;
+    return { drinks: { ...prevState.drinks, [key]: action.payload } };
   }
-  if (action.type === DELETE_DRINK){
-    console.log("in delete drink reducer")
-    console.log(action.payload)
-    const drinks = {...prevState.drinks}
-    delete drinks[action.payload]
-    return {drinks}
+  if (action.type === DELETE_DRINK) {
+    console.log("in delete drink reducer");
+    console.log(action.payload);
+    const drinks = { ...prevState.drinks };
+    delete drinks[action.payload];
+    return { drinks };
   }
   return prevState;
 };
