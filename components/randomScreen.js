@@ -55,8 +55,18 @@ class RandomScreen extends React.Component {
       <View style={styles.screen}>
         {this.state.randomDrink && (
           <View style={styles.row}>
-            <Button title="Another Drink" onPress={this.handleRandomDrink} />
-            <Button title="Save To My Bar" onPress={this.handleSave} />
+             <TouchableOpacity
+                style={styles.customButton}
+                onPress={this.handleRandomDrink}
+              >
+                <Text style={{ color: "white", fontSize: 16 }}>Another Drink</Text>
+              </TouchableOpacity>
+              <TouchableOpacity
+                style={styles.customButton}
+                onPress={this.handleSave}
+              >
+                <Text style={{ color: "white", fontSize: 16 }}>Save To My Bar</Text>
+              </TouchableOpacity>
           </View>
         )}
 
@@ -108,7 +118,14 @@ const styles = StyleSheet.create({
     color: "white",
     justifyContent: "center",
     alignItems: "center"
-  }
+  },
+  customButton: {
+    height: 50,
+    width: 150,
+    backgroundColor: "blue",
+    justifyContent: "center",
+    alignItems: "center"
+  },
 });
 
 export default connect(null, mapDispatchToProps)(RandomScreen);

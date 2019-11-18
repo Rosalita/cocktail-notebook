@@ -43,7 +43,7 @@ class BarScreen extends React.Component {
   render() {
     return (
       <View style={styles.screen}>
-        <Text>My Bar</Text>
+        <Text style={{fontSize: 24}}>My Bar</Text>
         <FlatList
           style={styles.list}
           data={this.getDrinkNames()}
