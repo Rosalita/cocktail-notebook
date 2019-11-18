@@ -26,6 +26,11 @@ class BarScreen extends React.Component {
     return this.props.navigation.navigate("barDetails", { id: item });
   };
 
+  handleDelete = item => {
+    console.log("delete")
+    console.log(item)
+  }
+
   render() {
     return (
       <View style={styles.screen}>
@@ -36,12 +41,19 @@ class BarScreen extends React.Component {
           renderItem={({ item, index }) => (
             <View style={styles.barItem}>
               <TouchableOpacity
-                style={styles.barSelect}
+                style={styles.barView}
                 onPress={() => this.handleSelect(item)}
               >
-                <Text>
-                  {index + 1}: {item}
-                </Text>
+                <Text style={{ color: "white", fontSize: 16 }}>View</Text>
+              </TouchableOpacity>
+              <Text>
+                {index + 1}: {item}
+              </Text>
+              <TouchableOpacity
+                style={styles.barDelete}
+                onPress={() => this.handleDelete(item)}
+              >
+                <Text style={{ color: "white", fontSize: 16 }}>Delete</Text>
               </TouchableOpacity>
             </View>
           )}
@@ -61,20 +73,31 @@ const styles = StyleSheet.create({
     paddingTop: Constants.statusBarHeight
   },
   list: {
-    marginTop: 10
+    marginTop: 10,
+    width: "100%",
   },
   barItem: {
     height: 30,
     width: "100%",
+    justifyContent: "space-between",
     flexDirection: "row",
-    marginTop: 10
+    marginTop: 10,
+    alignItems: "center"
   },
-  barSelect: {
+  barView: {
     height: 30,
-    width: "100%",
-    backgroundColor: "#DDDDDD",
+    width: 100,
+    backgroundColor: "blue",
     justifyContent: "center",
     alignItems: "center"
+  },
+  barDelete: {
+    height: 30,
+    width: 100,
+    backgroundColor: "red",
+    justifyContent: "center",
+    alignItems: "center"
+   
   }
 });
 
