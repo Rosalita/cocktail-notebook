@@ -10,6 +10,9 @@ const mapStateToProps = state => {
 class BarDetailScreen extends React.Component {
   componentDidMount() {
     console.log(this.props.navigation.state.params.id);
+    console.log("***")
+    console.log(this.props.drinks)
+
   }
 
   constructor(props) {

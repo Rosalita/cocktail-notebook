@@ -6,7 +6,6 @@ import {
   View,
   StyleSheet
 } from "react-native";
-import Ionicons from "react-native-vector-icons/Ionicons";
 import { connect } from "react-redux";
 import Constants from "expo-constants";
 
