@@ -70,7 +70,6 @@ export default class SearchListScreen extends React.Component {
   drinkSelected = drink => {
     console.log("drink selected");
     console.log(drink);
-    //this.props.navigation.navigate("Movie", { MovieID: id });
     return this.props.navigation.navigate("searchDetails", { drink });
   };
 
