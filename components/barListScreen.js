@@ -34,15 +34,13 @@ class BarScreen extends React.Component {
   };
 
   handleDelete = item => {
-    console.log("delete");
-    console.log(item);
     this.props.deleteDrink(item);
   };
 
   render() {
     return (
       <View style={styles.screen}>
-        <Text style={{ fontSize: 24 }}>My Bar</Text>
+        <Text style={styles.titleText}>My Bar</Text>
         <FlatList
           style={styles.list}
           data={this.getDrinkNames()}
@@ -73,7 +71,7 @@ class BarScreen extends React.Component {
 const styles = StyleSheet.create({
   screen: {
     flex: 1,
-    backgroundColor: "#ffffff",
+    backgroundColor: "#DDDDDD",
     alignItems: "center",
     justifyContent: "center",
     paddingTop: Constants.statusBarHeight
@@ -103,6 +101,9 @@ const styles = StyleSheet.create({
     backgroundColor: "red",
     justifyContent: "center",
     alignItems: "center"
+  },
+  titleText:{
+    fontSize: 24 
   }
 });
 

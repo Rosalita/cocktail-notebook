@@ -1,16 +1,6 @@
 const URLPrefix = "https://www.thecocktaildb.com/api/json/v1/1/";
 
-export const getRandomDrink = async () => {
-  const URL = `${URLPrefix}random.php`;
-  const response = await fetch(URL);
-  const rawJSON = await response.json();
-  const randomDrink = transformRandomDrink(rawJSON);
-  return randomDrink;
-};
-
-export const transformRandomDrink = rawJSON => {
-  const data = rawJSON["drinks"][0];
-
+processDrink = data => {
   const ingredients = {};
   if (data["strIngredient1"] != null) {
     ingredients[data["strIngredient1"]] = data["strMeasure1"];
@@ -67,3 +57,31 @@ export const transformRandomDrink = rawJSON => {
   };
   return drink;
 };
+
+export const transformSearchDrink = rawJSON => {
+  const processedDrinks = rawJSON["drinks"].map(processDrink);
+  return processedDrinks;
+};
+
+export const searchDrink = async searchString => {
+  const URL = `${URLPrefix}search.php?s=${searchString}`;
+  const response = await fetch(URL);
+  const rawJSON = await response.json();
+  const searchDrink = transformSearchDrink(rawJSON)
+  return searchDrink;
+};
+
+export const transformRandomDrink = rawJSON => {
+  const processedDrink = processDrink(rawJSON["drinks"][0]);
+  return processedDrink;
+};
+
+export const getRandomDrink = async () => {
+  const URL = `${URLPrefix}random.php`;
+  const response = await fetch(URL);
+  const rawJSON = await response.json();
+  const randomDrink = transformRandomDrink(rawJSON);
+  return randomDrink;
+};
+
+

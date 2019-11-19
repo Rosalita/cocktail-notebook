@@ -6,8 +6,6 @@ const reducer = (prevState = { drinks: {} }, action) => {
     return { drinks: { ...prevState.drinks, [key]: action.payload } };
   }
   if (action.type === DELETE_DRINK) {
-    console.log("in delete drink reducer");
-    console.log(action.payload);
     const drinks = { ...prevState.drinks };
     delete drinks[action.payload];
     return { drinks };

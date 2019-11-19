@@ -139,9 +139,7 @@ describe("reducers transform state correctly", () => {
       }
     };
 
-    const action = deleteDrink({
-      name: "Arizona Antifreeze"
-    });
+    const action = deleteDrink("Arizona Antifreeze");
 
     const expectedState = {
       drinks: {}
