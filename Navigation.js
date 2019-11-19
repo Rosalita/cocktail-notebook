@@ -3,10 +3,21 @@ import { createAppContainer } from "react-navigation";
 import { createBottomTabNavigator } from "react-navigation-tabs";
 import { createStackNavigator } from "react-navigation-stack";
 import Ionicons from "react-native-vector-icons/Ionicons";
-import searchScreen from "./components/searchScreen";
+import searchListScreen from "./components/searchListScreen";
+import searchDetailScreen from "./components/searchDetailScreen";
 import barListScreen from "./components/barListScreen";
 import barDetailScreen from "./components/barDetailScreen";
 import randomScreen from "./components/randomScreen";
+
+const SearchStackNavigator = createStackNavigator(
+  {
+    searchList: searchListScreen,
+    searchDetails: searchDetailScreen
+  },
+  {
+    headerMode: "none"
+  }
+);
 
 const BarStackNavigator = createStackNavigator(
   {
@@ -20,7 +31,14 @@ const BarStackNavigator = createStackNavigator(
 
 const TabNavigator = createBottomTabNavigator(
   {
-    Search: searchScreen,
+    Search: {
+      screen: SearchStackNavigator,
+      navigationOptions: () => ({
+        tabBarLabel: "Search",
+        tabBarIcon : () =>  <Ionicons name={"md-search"} size={25} />
+
+      })
+    },
     Bar: {
       screen: BarStackNavigator,
       navigationOptions: () => ({

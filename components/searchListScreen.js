@@ -15,7 +15,7 @@ const Row = props => (
 );
 const renderItem = selected => obj => <Row selected={selected} {...obj.item} />;
 
-export default class SearchScreen extends React.Component {
+export default class SearchListScreen extends React.Component {
   static navigationOptions = {
     tabBarIcon: ({ tintColour }) => (
       <Ionicons name={"md-search"} size={25} color={tintColour} />
@@ -52,10 +52,15 @@ export default class SearchScreen extends React.Component {
     });
   };
 
+  // handleSelect = item => {
+  //   return this.props.navigation.navigate("barDetails", { id: item });
+  // };
+
   drinkSelected = (name) => {
     console.log("drink selected");
     console.log(name)
     //this.props.navigation.navigate("Movie", { MovieID: id });
+    return this.props.navigation.navigate("searchDetails", { name })
   };
 
   render() {
