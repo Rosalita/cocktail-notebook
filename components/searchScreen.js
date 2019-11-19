@@ -1,18 +1,17 @@
 import React from "react";
-import { FlatList, Text, TextInput, View, StyleSheet } from "react-native";
+import { FlatList, Text, TextInput, TouchableOpacity, View, StyleSheet } from "react-native";
 import Ionicons from "react-native-vector-icons/Ionicons";
 import Constants from "expo-constants";
 import { searchDrink } from "../API";
 
 const Row = props => (
- // <TouchableOpacity onPress={() => props.selected(props.id)}>
+  <TouchableOpacity onPress={() => props.selected(props.name)}>
     <View style={styles.row}>
       <Text style={styles.listText}>
-      {props.name}
-      {props.glass}
+        {props.name}
       </Text>
     </View>
-//  </TouchableOpacity>
+  </TouchableOpacity>
 );
 const renderItem = selected => obj => <Row selected={selected} {...obj.item} />;
 
@@ -53,8 +52,9 @@ export default class SearchScreen extends React.Component {
     });
   };
 
-  drinkSelected = () => {
+  drinkSelected = (name) => {
     console.log("drink selected");
+    console.log(name)
     //this.props.navigation.navigate("Movie", { MovieID: id });
   };
 
@@ -67,7 +67,6 @@ export default class SearchScreen extends React.Component {
           value={this.state.searchString}
           onChangeText={this.updateSearch}
         />
-        {/* <Text>Results found: {this.state.totalResults}</Text> */}
         <FlatList
           data={this.state.drinks}
           renderItem={renderItem(this.drinkSelected)}
@@ -105,6 +104,6 @@ const styles = StyleSheet.create({
     color: "blue"
   },
   row: {
-    padding: 5
+    padding: 10
   }
 });
