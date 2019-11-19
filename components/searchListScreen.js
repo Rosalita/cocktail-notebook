@@ -1,15 +1,30 @@
 import React from "react";
-import { FlatList, Text, TextInput, TouchableOpacity, View, StyleSheet } from "react-native";
+import {
+  FlatList,
+  Text,
+  TextInput,
+  TouchableOpacity,
+  View,
+  StyleSheet
+} from "react-native";
 import Ionicons from "react-native-vector-icons/Ionicons";
 import Constants from "expo-constants";
 import { searchDrink } from "../API";
 
 const Row = props => (
-  <TouchableOpacity onPress={() => props.selected(props.name)}>
+  <TouchableOpacity
+    onPress={() =>
+      props.selected({
+        name: props.name,
+        glass: props.glass,
+        image: props.image,
+        ingredients: props.ingredients,
+        instructions: props.instructions
+      })
+    }
+  >
     <View style={styles.row}>
-      <Text style={styles.listText}>
-        {props.name}
-      </Text>
+      <Text style={styles.listText}>{props.name}</Text>
     </View>
   </TouchableOpacity>
 );
@@ -52,15 +67,11 @@ export default class SearchListScreen extends React.Component {
     });
   };
 
-  // handleSelect = item => {
-  //   return this.props.navigation.navigate("barDetails", { id: item });
-  // };
-
-  drinkSelected = (name) => {
+  drinkSelected = drink => {
     console.log("drink selected");
-    console.log(name)
+    console.log(drink);
     //this.props.navigation.navigate("Movie", { MovieID: id });
-    return this.props.navigation.navigate("searchDetails", { name })
+    return this.props.navigation.navigate("searchDetails", { drink });
   };
 
   render() {

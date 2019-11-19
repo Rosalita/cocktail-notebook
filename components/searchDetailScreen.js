@@ -22,20 +22,13 @@ class SearchDetailScreen extends React.Component {
   render() {
     return (
       <View style={styles.screen}>
-        <Text>Search Details Screen</Text>
-        <Text>{this.props.navigation.state.params.name}</Text>
-        {/* <Drink
-          name={this.props.drinks[this.props.navigation.state.params.id].name}
-          glass={this.props.drinks[this.props.navigation.state.params.id].glass}
-          image={this.props.drinks[this.props.navigation.state.params.id].image}
-          ingredients={
-            this.props.drinks[this.props.navigation.state.params.id].ingredients
-          }
-          instructions={
-            this.props.drinks[this.props.navigation.state.params.id]
-              .instructions
-          }
-        /> */}
+        <Drink
+          name={this.props.navigation.state.params.drink.name}
+          glass={this.props.navigation.state.params.drink.glass}
+          image={this.props.navigation.state.params.drink.image}
+          ingredients={this.props.navigation.state.params.drink.ingredients}
+          instructions={this.props.navigation.state.params.drink.instructions}
+        />
       </View>
     );
   }
