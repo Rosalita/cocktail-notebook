@@ -25,6 +25,11 @@
     ],
     "ios": {
       "supportsTablet": true
-    }
+    },
+    "android": {
+      "package": "dev.rosie.cocktail"
+    },
+    "description": "Cocktail Notebook lets you search and save cocktail recipes",
+    "githubUrl": "https://github.com/Rosalita/cocktail-notebook"
   }
 }
